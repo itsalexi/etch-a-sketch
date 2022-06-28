@@ -23,8 +23,9 @@ function removeCanvas() {
 }
 
 function makeCanvas() {
-  let size = prompt("How big do you want your canvas to be?");
-  if (!size) return;
+  let size = prompt("How big do you want your canvas to be? (MAX: 100)");
+  if (size > 100) return;
+  if (isNaN(size)) return;
 
   removeCanvas();
   generateGrid(size);
