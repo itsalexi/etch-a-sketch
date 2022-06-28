@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <button onclick="makeCanvas()">Generate a canvas</button>
     <div class="main"></div>
 
     <div class="modes">
@@ -19,6 +18,8 @@
         <label for="color">Color</label>
         <button onclick="changeMode(this)" id="picker">Color</button>
         <button onclick="changeMode(this)" id="random">Random RGB</button>
+        <input type="range" name="range" id="sizeSlider" min="1" max="100">
+        <p id="sizeText"></p>
     </div>
     <!-- SCRIPTS -->
     <script src="main.js"></script>

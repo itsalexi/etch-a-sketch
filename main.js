@@ -2,11 +2,14 @@ let gridSize = 16;
 let mode = "picker";
 // Check if mouse is down
 let mouseDown = false;
+
 document.body.onmouseup = () => (mouseDown = false);
 document.body.onmousedown = () => (mouseDown = true);
 
 const mainDiv = document.querySelector(".main");
 const colorPicker = document.querySelector("#color");
+const slider = document.querySelector("#sizeSlider");
+const sliderText = document.querySelector("#sizeText");
 
 function generateGrid(size) {
   const canvas = document.createElement("div");
@@ -29,7 +32,6 @@ function removeCanvas() {
 }
 
 function makeCanvas() {
-  let size = prompt("How big do you want your canvas to be? (MAX: 100)");
   if (size > 100) return;
   if (isNaN(size)) return;
   removeCanvas();
@@ -42,6 +44,7 @@ function getPixels() {
 
   pixels.forEach((pixel) => {
     pixel.addEventListener("mouseover", changePixel);
+    pixel.addEventListener("click", changePixel);
   });
 }
 
@@ -70,6 +73,14 @@ function changeMode(btn) {
   mode = `${btn.id}`;
   console.log(mode);
 }
+
+let size = slider.value;
+
+slider.oninput = function () {
+  sliderText.innerHTML = `${this.value} x ${this.value}`;
+  size = this.value;
+  makeCanvas();
+};
 
 generateGrid(16);
 getPixels();
