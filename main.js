@@ -43,6 +43,7 @@ function getPixels() {
 
   pixels.forEach((pixel) => {
     pixel.addEventListener("mouseover", changePixel);
+    pixel.addEventListener("mousedown", changePixel);
     pixel.addEventListener("click", changePixel);
   });
 }
