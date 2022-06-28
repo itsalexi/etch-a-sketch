@@ -1,4 +1,3 @@
-let gridSize = 16;
 let mode = "picker";
 // Check if mouse is down
 let mouseDown = false;
@@ -74,7 +73,10 @@ function changeMode(btn) {
   console.log(mode);
 }
 
+// Slider
 let size = slider.value;
+
+sliderText.innerHTML = `${size} x ${size}`;
 
 slider.oninput = function () {
   sliderText.innerHTML = `${this.value} x ${this.value}`;
