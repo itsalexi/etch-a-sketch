@@ -26,8 +26,22 @@ function makeCanvas() {
   let size = prompt("How big do you want your canvas to be? (MAX: 100)");
   if (size > 100) return;
   if (isNaN(size)) return;
-
   removeCanvas();
   generateGrid(size);
 }
+
+function changePixel(pixel, color) {
+  pixel.setAttribute("style", `background-color: ${color};`);
+}
+
+function getPixels() {
+  pixels = document.querySelectorAll(".pixel");
+  console.log(pixels);
+
+  pixels.forEach((pixel) => {
+    pixel.addEventListener("mouseover", changePixel(pixel, "blue"));
+  });
+}
+
 generateGrid(16);
+getPixels();

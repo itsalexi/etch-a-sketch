@@ -5,7 +5,3 @@
 .pixel {
   border: 2px solid black;
 }
-
-.pixel:hover {
-  background-color: aqua;
-}
