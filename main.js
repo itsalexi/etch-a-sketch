@@ -1,4 +1,10 @@
 let gridSize = 16;
+let color = "blue";
+// Check if mouse is down
+let mouseDown = false;
+document.body.onmouseup = () => (mouseDown = false);
+document.body.onmousedown = () => (mouseDown = true);
+
 const mainDiv = document.querySelector(".main");
 
 function generateGrid(size) {
@@ -9,12 +15,11 @@ function generateGrid(size) {
     console.log("test");
     const pixel = document.createElement("div");
     pixel.classList.add("pixel");
-    pixel.textContent = "hi";
-
     canvas.append(pixel);
   }
 
-  canvas.style.cssText = `grid-template-columns: repeat(${size}, 25px [col-start])`;
+  canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 }
 
 function removeCanvas() {
@@ -28,19 +33,21 @@ function makeCanvas() {
   if (isNaN(size)) return;
   removeCanvas();
   generateGrid(size);
-}
-
-function changePixel(pixel, color) {
-  pixel.setAttribute("style", `background-color: ${color};`);
+  getPixels();
 }
 
 function getPixels() {
   pixels = document.querySelectorAll(".pixel");
-  console.log(pixels);
 
   pixels.forEach((pixel) => {
-    pixel.addEventListener("mouseover", changePixel(pixel, "blue"));
+    pixel.addEventListener("mouseover", changePixel);
   });
+}
+
+function changePixel(e) {
+  if (e.type == "mouseover" && !mouseDown) return;
+
+  e.target.style.backgroundColor = color;
 }
 
 generateGrid(16);

@@ -1,7 +1,13 @@
 #canvas {
   display: grid;
+  box-shadow: 5px 10px 8px #888888;
+  margin: 0;
+  height: 500px;
+  width: 500px;
 }
 
 .pixel {
-  border: 2px solid black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
