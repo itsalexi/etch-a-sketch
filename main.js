@@ -22,4 +22,11 @@ function removeCanvas() {
   canvas.remove();
 }
 
+function makeCanvas() {
+  let size = prompt("How big do you want your canvas to be?");
+  if (!size) return;
+
+  removeCanvas();
+  generateGrid(size);
+}
 generateGrid(16);
