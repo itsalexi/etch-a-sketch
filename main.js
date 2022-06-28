@@ -1,11 +1,12 @@
 let gridSize = 16;
-let color = "blue";
+let mode = "picker";
 // Check if mouse is down
 let mouseDown = false;
 document.body.onmouseup = () => (mouseDown = false);
 document.body.onmousedown = () => (mouseDown = true);
 
 const mainDiv = document.querySelector(".main");
+const colorPicker = document.querySelector("#color");
 
 function generateGrid(size) {
   const canvas = document.createElement("div");
@@ -46,8 +47,28 @@ function getPixels() {
 
 function changePixel(e) {
   if (e.type == "mouseover" && !mouseDown) return;
+  e.target.style.backgroundColor = getColor();
+}
 
-  e.target.style.backgroundColor = color;
+function getColor() {
+  if (mode === "picker") {
+    return `${colorPicker.value}`;
+  } else if (mode === "random") {
+    return randomRGB();
+  }
+}
+
+function randomRGB() {
+  r = Math.floor(Math.random() * 255);
+  g = Math.floor(Math.random() * 255);
+  b = Math.floor(Math.random() * 255);
+
+  return `rgb(${r},${g},${b})`;
+}
+
+function changeMode(btn) {
+  mode = `${btn.id}`;
+  console.log(mode);
 }
 
 generateGrid(16);

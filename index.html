@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,6 +12,14 @@
 <body>
     <button onclick="makeCanvas()">Generate a canvas</button>
     <div class="main"></div>
+
+    <div class="modes">
+        <br>
+        <input type="color" name="color" id="color">
+        <label for="color">Color</label>
+        <button onclick="changeMode(this)" id="picker">Color</button>
+        <button onclick="changeMode(this)" id="random">Random RGB</button>
+    </div>
     <!-- SCRIPTS -->
     <script src="main.js"></script>
 </body>
