@@ -7,20 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="main"></div>
+    <header class="header">
+        <h1 id="title">Etch A Sketch</h1>
+    </header>
+    <div class="main">
+        <div class="modes">
+            <div class="buttons">
+                <div class="color">
+                    <input type="color" name="color" id="color">
+                </div>
+                <button onclick="changeMode(this)" id="picker" class="selected">Color</button>
+                <button onclick="changeMode(this)" id="random">Random RGB</button>
+                <button onclick="changeMode(this)" id="eraser">Eraser</button>
+                <button onclick="makeCanvas()" id="random">Clear</button>
 
-    <div class="modes">
-        <br>
-        <input type="color" name="color" id="color">
-        <label for="color">Color</label>
-        <button onclick="changeMode(this)" id="picker">Color</button>
-        <button onclick="changeMode(this)" id="random">Random RGB</button>
-        <input type="range" name="range" id="sizeSlider" min="1" max="100" value="16">
-        <p id="sizeText"></p>
+                <div class="size">
+                    <p id="sizeText"></p>
+                    <input type="range" name="range" id="sizeSlider" min="1" max="100" value="16">
+                </div>
+            </div>
+        </div>
     </div>
+    <footer id="footer">
+        <p>Created by <a href="https://github.com/itsalexi">Alexi</a></p>
+        <p>Built for <a href="https://theodinproject.com/">The Odin Project</a></p>
+    </footer>
+
     <!-- SCRIPTS -->
     <script src="main.js"></script>
 </body>

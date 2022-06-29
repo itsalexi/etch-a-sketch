@@ -1,6 +1,7 @@
 let mode = "picker";
 // Check if mouse is down
 let mouseDown = false;
+let selectedButton = document.querySelector("#picker");
 
 document.body.onmouseup = () => (mouseDown = false);
 document.body.onmousedown = () => (mouseDown = true);
@@ -58,6 +59,8 @@ function getColor() {
     return `${colorPicker.value}`;
   } else if (mode === "random") {
     return randomRGB();
+  } else if (mode === "eraser") {
+    return "white";
   }
 }
 
@@ -70,8 +73,11 @@ function randomRGB() {
 }
 
 function changeMode(btn) {
+  selectedButton.classList.toggle("selected");
   mode = `${btn.id}`;
   console.log(mode);
+  selectedButton = btn;
+  btn.classList.toggle("selected");
 }
 
 // Slider
